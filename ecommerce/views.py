@@ -12,3 +12,11 @@ def productpage(request):
 
 def aboutpage(request):
     return render(request, 'about.html')
+
+def singleProductView(request, id):
+    single_product = Product.objects.get(id=id)
+    context = {
+        "product": single_product
+    }
+    return render(request, "product_details.html", context)
+
